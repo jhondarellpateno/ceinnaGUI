@@ -179,11 +179,11 @@ public class login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Hello " + name + "!\nLOGIN SUCCESS!");
 
                 if (type.equals("Admin")) {
-                    DashBAAcount dash = new DashBAAcount(name, email, stat);
+                    DashBAAcount dash = new DashBAAcount(name, email, stat, type);
                     dash.setVisible(true);
                     dash.setLocationRelativeTo(null);
                 } else if (type.equals("User")) {
-                    DashBUAcount users = new DashBUAcount(name, email, stat);
+                    DashBUAcount users = new DashBUAcount(name, email, stat, type);
                     users.setVisible(true);
                     users.setLocationRelativeTo(null);
                 }
