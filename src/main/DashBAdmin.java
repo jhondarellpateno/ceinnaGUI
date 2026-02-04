@@ -11,8 +11,22 @@ package main;
  * @author user
  */
 public class DashBAdmin extends javax.swing.JFrame {
+    
+    private String nam;
+    private String ema;
+    private String typ;
+   
+    public DashBAdmin(String names, String emails, String types) {
+        initComponents();
+        user.setText(names);
+        email.setText(emails);
+        type.setText(types);
+        nam = names;
+        ema = emails;
+        typ = types;
+    }
 
-    public DashBAdmin() {
+    private DashBAdmin() {
         initComponents();
     }
 
@@ -26,22 +40,86 @@ public class DashBAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Dashboard = new javax.swing.JLabel();
         Orders = new javax.swing.JLabel();
         Products = new javax.swing.JLabel();
         Users = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        Profile = new javax.swing.JLabel();
+        user = new javax.swing.JLabel();
+        type = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
+        Dashboard4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 450));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Dashboard.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Dashboard.setText("Dashboard");
+        jPanel2.add(Dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 180, 188, -1));
+
+        Orders.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        Orders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Orders.setText("Orders");
+        jPanel2.add(Orders, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 210, 188, -1));
+
+        Products.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        Products.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Products.setText("Products");
+        jPanel2.add(Products, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 240, 188, -1));
+
+        Users.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        Users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Users.setText("Users");
+        Users.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UsersMouseClicked(evt);
+            }
+        });
+        jPanel2.add(Users, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 270, 188, -1));
+
+        jButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jButton1.setText("Log Out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 350, 188, -1));
+
+        user.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        user.setText("USER");
+        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 168, -1));
+
+        type.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
+        type.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        type.setText("type");
+        jPanel2.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 168, -1));
+
+        email.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        email.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        email.setText("email");
+        jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 168, -1));
+
+        Dashboard4.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        Dashboard4.setForeground(new java.awt.Color(0, 102, 204));
+        Dashboard4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Dashboard4.setText("------------------------------------------");
+        jPanel2.add(Dashboard4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 420));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
 
@@ -77,78 +155,6 @@ public class DashBAdmin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        Dashboard.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Dashboard.setText("Dashboard");
-
-        Orders.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        Orders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Orders.setText("Orders");
-
-        Products.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        Products.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Products.setText("Products");
-
-        Users.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        Users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Users.setText("Users");
-        Users.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                UsersMouseClicked(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton1.setText("Log Out");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        Profile.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        Profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Profile.setText("Profile");
-        Profile.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ProfileMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Dashboard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Orders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Products, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Users, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Profile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(Dashboard)
-                .addGap(47, 47, 47)
-                .addComponent(Orders)
-                .addGap(37, 37, 37)
-                .addComponent(Products)
-                .addGap(45, 45, 45)
-                .addComponent(Users)
-                .addGap(18, 18, 18)
-                .addComponent(Profile)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
-
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel3.setText("Dashboard");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 150, 60));
@@ -167,15 +173,11 @@ public class DashBAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void UsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersMouseClicked
-        Users user = new Users();
+        Users user = new Users(nam, ema, typ);
         user.setLocationRelativeTo(null);
         user.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_UsersMouseClicked
-
-    private void ProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfileMouseClicked
-
-    }//GEN-LAST:event_ProfileMouseClicked
 
     /**
      * @param args the command line arguments
@@ -197,10 +199,11 @@ public class DashBAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Dashboard;
+    private javax.swing.JLabel Dashboard4;
     private javax.swing.JLabel Orders;
     private javax.swing.JLabel Products;
-    private javax.swing.JLabel Profile;
     private javax.swing.JLabel Users;
+    private javax.swing.JLabel email;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -208,5 +211,7 @@ public class DashBAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel type;
+    private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
 }

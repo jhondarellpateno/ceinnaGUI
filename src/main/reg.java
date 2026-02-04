@@ -184,34 +184,44 @@ public class reg extends javax.swing.JFrame {
         String em = email.getText();
         String pass = password.getText();
 
-        if (user.isEmpty() && em.isEmpty() && pass.isEmpty()) {
+        if (user.isEmpty() || em.isEmpty() || pass.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fill up the blank!");
             return;
         }
-        
+
         String emailPattern = "^[A-Za-z0-9+_.-]+@(gmail\\.com|yahoo\\.com|outlook\\.com)$";
-        
-        if(!em.matches(emailPattern)){
+
+        if (!em.matches(emailPattern)) {
             JOptionPane.showMessageDialog(null, "Invalid Email!");
             username.setText("");
             email.setText("");
-
             password.setText("");
             return;
-            
+
         }
-        String hashedPass = db.hashPassword(pass);
-        String sql = "INSERT INTO account ( username, email, password, status, type) VALUES ( ?, ?, ?, ?, ?)";
+        String qry = "SELECT * FROM account WHERE email = ?";
+        java.util.List<java.util.Map<String, Object>> result = db.fetchRecords(qry, em);
 
-        db.addRecord(sql, user, em, hashedPass, "Pending", "User");
-        JOptionPane.showMessageDialog(null, "Successfully Register!");
+        if (!result.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Email already exists. Please enter another email.");
+            username.setText("");
+            email.setText("");
+            password.setText("");
+        } else {
+            String hashedPass = db.hashPassword(pass);
+            String sql = "INSERT INTO account ( username, email, password, status, type) VALUES ( ?, ?, ?, ?, ?)";
 
-        login logFrame = new login();
-        logFrame.setLocationRelativeTo(null);
-        logFrame.setVisible(true);
-        this.dispose();
+            db.addRecord(sql, user, em, hashedPass, "Pending", "User");
+            JOptionPane.showMessageDialog(null, "Successfully Register!");
 
+            login logFrame = new login();
+            logFrame.setLocationRelativeTo(null);
+            logFrame.setVisible(true);
+            this.dispose();
+            
+            
 
+        }
     }//GEN-LAST:event_registerActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
